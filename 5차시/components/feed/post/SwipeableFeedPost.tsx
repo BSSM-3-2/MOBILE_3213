@@ -27,31 +27,35 @@ function SwipeableFeedPost({
     // 실습 5-1: cardScale 선언
     const cardScale = useSharedValue(1);
 
-    // 실습 4-2: panGesture 정의
+    // 실습 4-2: panGesture 정의 (강사 정답 기반 개선)
     const panGesture = Gesture.Pan()
         .activeOffsetX([-10, 10])
         .onUpdate(e => {
-            // 왼쪽으로만 밀리도록 제한 (0 ~ -DELETE_AREA_WIDTH)
-            translateX.value = Math.max(-DELETE_AREA_WIDTH, e.translationX);
+            // 범위를 0 ~ -DELETE_AREA_WIDTH 사이로 제한
+            translateX.value = Math.min(
+                0,
+                Math.max(e.translationX, -DELETE_AREA_WIDTH),
+            );
         })
-        .onEnd(() => {
-            if (translateX.value < DELETE_THRESHOLD) {
+        .onEnd(e => {
+            if (e.translationX < DELETE_THRESHOLD) {
                 // 임계값보다 많이 밀면 삭제 영역 고정
-                translateX.value = withSpring(-DELETE_AREA_WIDTH);
+                translateX.value = withTiming(-DELETE_AREA_WIDTH);
             } else {
                 // 아니면 다시 복귀
-                translateX.value = withSpring(0);
+                translateX.value = withTiming(0);
             }
         });
 
-    // 실습 5-2: longPressGesture 정의
+    // 실습 5-2: longPressGesture 정의 (강사 정답 기반 개선)
     const longPressGesture = Gesture.LongPress()
+        .minDuration(400)
         .onStart(() => {
-            cardScale.value = withTiming(0.95, { duration: 150 });
+            cardScale.value = withSpring(0.96, { damping: 8 });
             runOnJS(Haptics.impactAsync)(Haptics.ImpactFeedbackStyle.Medium);
         })
         .onFinalize(() => {
-            cardScale.value = withSpring(1);
+            cardScale.value = withSpring(1, { damping: 8 });
         });
 
     // 실습 5-3: Gesture.Race로 합성 (롱프레스와 팬이 경쟁)
