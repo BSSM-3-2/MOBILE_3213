@@ -1,0 +1,193 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1775696430818,
+  "projectRoot": "/Users/Study/app-programming/5차시",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "react",
+        "version": "19.1.0",
+        "category": "frontend"
+      },
+      {
+        "name": "react-dom",
+        "version": "19.1.0",
+        "category": "frontend"
+      }
+    ],
+    "packageManager": "yarn",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": "yarn lint",
+    "devCommand": "yarn start",
+    "scripts": {
+      "start": "expo start",
+      "start-tunnel": "expo start --tunnel",
+      "reset-project": "node ./scripts/reset-project.js",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web",
+      "lint-check": "expo lint",
+      "lint-fix": "expo lint --fix",
+      "prettier-check": "yarn prettier --check \"app/**/*.+(js|jsx|mjs|cjs|ts|tsx|json)\"",
+      "prettier-fix": "yarn prettier --write \"app/**/*.+(js|jsx|mjs|cjs|ts|tsx|json)\"",
+      "compile": "yarn tsc",
+      "postinstall": "yarn husky",
+      "pre-commit": "if [ -e .git ]; then yarn run lint-check && yarn lint-staged && yarn run compile; else echo 'pre-commit was not executed cause cannot find .git'; fi",
+      "lint": "expo lint"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "app",
+      "assets",
+      "components",
+      "scripts"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "api": {
+      "path": "api",
+      "purpose": "API routes",
+      "fileCount": 3,
+      "lastAccessed": 1775696430802,
+      "keyFiles": [
+        "client.ts",
+        "content.ts",
+        "users.ts"
+      ]
+    },
+    "app": {
+      "path": "app",
+      "purpose": "Application code",
+      "fileCount": 1,
+      "lastAccessed": 1775696430802,
+      "keyFiles": [
+        "_layout.tsx"
+      ]
+    },
+    "assets": {
+      "path": "assets",
+      "purpose": "Static assets",
+      "fileCount": 0,
+      "lastAccessed": 1775696430805,
+      "keyFiles": []
+    },
+    "components": {
+      "path": "components",
+      "purpose": "UI components",
+      "fileCount": 5,
+      "lastAccessed": 1775696430806,
+      "keyFiles": [
+        "container.tsx",
+        "external-link.tsx",
+        "haptic-tab.tsx",
+        "themed-text.tsx",
+        "themed-view.tsx"
+      ]
+    },
+    "constants": {
+      "path": "constants",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775696430807,
+      "keyFiles": [
+        "theme.ts"
+      ]
+    },
+    "hooks": {
+      "path": "hooks",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1775696430808,
+      "keyFiles": [
+        "use-color-scheme.ts",
+        "use-color-scheme.web.ts",
+        "use-theme-color.ts"
+      ]
+    },
+    "mock": {
+      "path": "mock",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1775696430809,
+      "keyFiles": [
+        "posts.ts",
+        "user.ts",
+        "users.ts"
+      ]
+    },
+    "scripts": {
+      "path": "scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 1,
+      "lastAccessed": 1775696430809,
+      "keyFiles": [
+        "reset-project.js"
+      ]
+    },
+    "store": {
+      "path": "store",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1775696430809,
+      "keyFiles": [
+        "feed-store.ts",
+        "user-store.ts"
+      ]
+    },
+    "types": {
+      "path": "types",
+      "purpose": "Type definitions",
+      "fileCount": 3,
+      "lastAccessed": 1775696430809,
+      "keyFiles": [
+        "Post.ts",
+        "User.ts",
+        "assets.d.ts"
+      ]
+    },
+    "utils": {
+      "path": "utils",
+      "purpose": "Utility functions",
+      "fileCount": 1,
+      "lastAccessed": 1775696430809,
+      "keyFiles": [
+        "image.ts"
+      ]
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}
